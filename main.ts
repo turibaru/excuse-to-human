@@ -2,6 +2,11 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
+// Skrip kecil ini memuat satu baris alasan dari berkas sebelah,
+// lalu memastikan panjangnya masih muat dalam jatah yang ditentukan,
+// dan bila semuanya beres, menaruh salinannya di folder tujuan
+// yang ditunjuk lewat variabel lingkungan.
+
 const here = dirname(fileURLToPath(import.meta.url));
 const entry = readFileSync(join(here, "entry.txt"), "utf8");
 if (!entry || !entry.trim() || entry.length > 200) {
